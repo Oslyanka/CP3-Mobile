@@ -19,7 +19,7 @@ const ListItem = ({ post }: ListItemProps) => {
         <FontAwesomeIcon icon={faHeart} color="red" />
         <Text>{post.reactions.likes}</Text>
         <FontAwesomeIcon icon={faHeartBroken} color="#5539CC" />
-        <Text>{post.reactions.likes}</Text>
+        <Text>{post.reactions.dislikes}</Text>
         <FontAwesomeIcon icon={faEye} />
         <Text>{post.views}</Text>
       </View>
