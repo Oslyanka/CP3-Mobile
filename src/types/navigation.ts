@@ -1,6 +1,6 @@
 type Home = {
-    History: undefined;
-    Fiction: undefined
-}
+  History: undefined;
+  Fiction: undefined;
+};
 
-export {Home}
+export { Home };
