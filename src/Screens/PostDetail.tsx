@@ -5,6 +5,7 @@ import { Post, PostResponse } from "@/types";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import {  faHeart } from "@fortawesome/free-solid-svg-icons";
 /*importação teste*/import { FlatList, Text, View, StyleSheet } from "react-native";
+import { tags } from "react-native-svg/lib/typescript/xmlTags";
 
 //import List from "@/Components/Posts/List";
 
@@ -43,12 +44,12 @@ const PostDetail = () => {
                 <View style={styles.body}>
                     <Text style={styles.title}>{post.title}</Text>
                     <Text>{post.body}</Text>
-                    <Text>Tags: {post.tags?.join(",")}</Text>
+                    <Text style = {styles.tags}>Tags: {post.tags?.join(",")}</Text>
                 </View>
             )}
             renderItem ={({item}) =>(
                 <View style={styles.commentCard}>
-                    <Text>@{item.user.username}</Text>
+                    <Text style ={styles.user}>@{item.user.username}</Text>
                     <Text>{item.body}</Text>
                     <View style={styles.reactions}>
                         <FontAwesomeIcon icon={faHeart} color="red" />
@@ -68,6 +69,13 @@ const styles = StyleSheet.create({
   listContent: {
     padding: 12,
     paddingBottom: 50,
+  },
+  user: {
+    fontWeight: "600"
+  },
+  tags: {
+    fontWeight: "500",
+    marginTop: 15
   },
   commentCard: {
     marginBottom: 12,
