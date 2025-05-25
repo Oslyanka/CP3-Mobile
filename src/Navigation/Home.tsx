@@ -2,8 +2,11 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Home } from "@/types/navigation";
 import History from "@/Screens/History";
 import Fiction from "@/Screens/Fiction";
+//import PostDetail from "@/Screens/PostDetail";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faBook, faRobot } from "@fortawesome/free-solid-svg-icons";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
 
 const Tabs = createBottomTabNavigator<Home>();
 

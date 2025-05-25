@@ -1,17 +1,30 @@
 import { Post } from "@/types";
-import { FlatList } from "react-native";
+import { FlatList, View, StyleSheet } from "react-native";
 import ListItem from "./ListItem";
+import {useNavigation} from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import {RootStackParamList} from "@/types/navigation";
 
+type NavigationProps = NativeStackNavigationProp<RootStackParamList,"PostDetails">;
 type ListProps = {
   posts: Post[];
 };
 
 const List = ({ posts }: ListProps) => {
+  const navigation = useNavigation<NavigationProps>();
+
+  const handlePress = (postId:number) =>{
+    navigation.navigate("PostDetails",{postId});
+  };
+
   return (
-    <FlatList
-      data={posts}
-      renderItem={({ item }) => <ListItem post={item} />}
-    />
+    <View>
+      <FlatList
+        data={posts}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => ( 
+        <ListItem post={item} onPress={() => handlePress(item.id)} />)}/>
+    </View>
   );
 };
 

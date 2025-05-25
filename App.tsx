@@ -1,11 +1,11 @@
 import { NavigationContainer, BaseRouter } from "@react-navigation/native";
-import HomeTab from "@/Navigation/Home";
+import NavigatorStack from "@/Navigation/Navigator";
 
 export default function App() {
-  const nome = "Leonardo";
+  const nome = "Ian e Aksel";
   return (
     <NavigationContainer>
-      <HomeTab />
+      <NavigatorStack />
     </NavigationContainer>
   );
 }
