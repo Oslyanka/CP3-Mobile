@@ -2,6 +2,8 @@ import { useRoute } from "@react-navigation/native"
 import { useEffect, useState } from "react";
 import { dummyApi } from "@/api";
 import { Post, PostResponse } from "@/types";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import {  faHeart } from "@fortawesome/free-solid-svg-icons";
 /*importação teste*/import { FlatList, Text, View, StyleSheet } from "react-native";
 
 //import List from "@/Components/Posts/List";
@@ -36,20 +38,21 @@ const PostDetail = () => {
         <FlatList 
         data ={comments} 
         keyExtractor={(item) =>item.id.toString()} 
-        contentContainerStyle ={styles.container}
+        contentContainerStyle ={styles.listContent}
         ListHeaderComponent={() =>(
-                <View>
+                <View style={styles.body}>
                     <Text style={styles.title}>{post.title}</Text>
                     <Text>{post.body}</Text>
                     <Text>Tags: {post.tags?.join(",")}</Text>
                 </View>
             )}
             renderItem ={({item}) =>(
-                <View>
+                <View style={styles.commentCard}>
                     <Text>@{item.user.username}</Text>
                     <Text>{item.body}</Text>
                     <View style={styles.reactions}>
-                        <Text>Likes: {item.likes}</Text>
+                        <FontAwesomeIcon icon={faHeart} color="red" />
+                        <Text>{item.likes}</Text>
                     </View>
                 </View>
             )}
@@ -60,24 +63,42 @@ const PostDetail = () => {
     
 };
 
-const styles = StyleSheet.create({
-    container: {
-      padding: 6,
-      gap: 4,
-    },
-    title: {
-      fontSize: 20,
-      color: "#1f1f1f",
-      textAlign: "center",
-    },
-    tag: {
 
-    },
-    reactions: {
-      flex: 1,
-      flexDirection: "row",
-      gap: 8,
-    },
+const styles = StyleSheet.create({
+  listContent: {
+    padding: 12,
+    paddingBottom: 50,
+  },
+  commentCard: {
+    marginBottom: 12,
+    padding: 10,
+    backgroundColor: "#f9f9f9",
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: "#1f1f1f",
+    elevation: 2,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
+    color: "#1f1f1f",
+    marginBottom: 8,
+  },
+  body:{
+    borderWidth: 1,
+    marginBottom: 12,
+    padding: 10,
+    backgroundColor: "#f9f9f9",
+    borderRadius: 5,
+  },
+  reactions: {
+    flexDirection: "row",
+    gap: 8,
+    justifyContent: "center",
+  },
 });
+
+
 
 export default PostDetail;

@@ -21,18 +21,20 @@ const ListItem = ({ post, onPress }: ListItemProps) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={onPress}>
-        <View>
-          <Text style={styles.title}>{post.title}</Text>
-        </View>
+        <Text style={styles.title}>{post.title}</Text>
       </TouchableOpacity>
-      <View>
-        <View style={styles.reactions}>
+      <View style={styles.reactions}>
+        <View style={styles.reactionGroup}>
           <FontAwesomeIcon icon={faHeart} color="red" />
-          <Text>{post.reactions.likes}</Text>
+          <Text style={styles.reactionText}>{post.reactions.likes}</Text>
+        </View>
+        <View style={styles.reactionGroup}>
           <FontAwesomeIcon icon={faHeartBroken} color="#5539CC" />
-          <Text>{post.reactions.dislikes}</Text>
+          <Text style={styles.reactionText}>{post.reactions.dislikes}</Text>
+        </View>
+        <View style={styles.reactionGroup}>
           <FontAwesomeIcon icon={faEye} />
-          <Text>{post.views}</Text>
+          <Text style={styles.reactionText}>{post.views}</Text>
         </View>
       </View>
     </View>
@@ -52,28 +54,40 @@ const ListItem = ({ post, onPress }: ListItemProps) => {
   );
 };
 
+
 const styles = StyleSheet.create({
   container: {
-    padding: 6,
-    gap: 4,
-    marginVertical: 10,
-    marginHorizontal: 20,
-    borderRadius: 5,
+    padding: 12,
+    marginVertical: 6,
+    marginHorizontal: 12,
+    borderRadius: 10,
     borderWidth: 1,
-    borderBlockColor: "#1f1f1f"
+    borderColor: "#1f1f1f",
+    backgroundColor: "#f0f0f0",
   },
   title: {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",
     color: "#1f1f1f",
+    marginBottom: 8,
   },
   reactions: {
     flex: 1,
     flexDirection: "row",
-    gap: 8,
-    justifyContent: "center",
+    justifyContent: "space-evenly",
+  },
+  reactionGroup: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+  },
+  reactionText: {
+    marginLeft: 4,
+    fontWeight: "600",
+    color: "#444",
   },
 });
+
 
 export default ListItem;

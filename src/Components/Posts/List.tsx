@@ -18,7 +18,7 @@ const List = ({ posts }: ListProps) => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id.toString()}
@@ -27,5 +27,11 @@ const List = ({ posts }: ListProps) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default List;
