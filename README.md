@@ -1,3 +1,8 @@
+# Integrantes da Dupla
+
+- RM98860 Ian Xavier Kuraoka
+- RM99011 Aksel Viktor Caminha Rae
+
 # Usando API do DummyJson
 
 A proposta deste projeto é mostrar posts contidos de história e ficção contidos no DummyJson.
