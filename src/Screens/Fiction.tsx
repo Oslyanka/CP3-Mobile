@@ -4,6 +4,7 @@ import { Post, PostResponse } from "@/types";
 
 import List from "@/Components/Posts/List";
 
+//pega os posts do fiction, e coloca em display
 const Fiction =() => {
     const [posts, setPosts] = useState<Post[]>([]);
 

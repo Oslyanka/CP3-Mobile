@@ -5,6 +5,7 @@ import PostDetail from "@/Screens/PostDetail";
 
 const Stack = createNativeStackNavigator();
 
+//botão de navegação 
 const NavigatorStack = () => {
   return(
     <Stack.Navigator>

@@ -28,6 +28,7 @@ const List = ({ posts }: ListProps) => {
   );
 };
 
+// Adiciona a scroll wheel (estavamos com um problema e esta foi a unica maneira de concertar)
 const styles = StyleSheet.create({
   container: {
     flex: 1,

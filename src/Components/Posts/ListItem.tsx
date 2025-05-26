@@ -17,6 +17,7 @@ type ListItemProps = {
   onPress: () =>void;
 };
 
+//ícones de like, deslike e visualização
 const ListItem = ({ post, onPress }: ListItemProps) => {
   return (
     <View style={styles.container}>
@@ -28,8 +29,8 @@ const ListItem = ({ post, onPress }: ListItemProps) => {
           <FontAwesomeIcon icon={faHeart} color="red" />
           <Text style={styles.reactionText}>{post.reactions.likes}</Text>
         </View>
-        <View style={styles.reactionGroup}>
-          <FontAwesomeIcon icon={faHeartBroken} color="#5539CC" />
+        <View style={styles.reactionGroup}> 
+          <FontAwesomeIcon icon={faHeartBroken} color="#5539CC" /> 
           <Text style={styles.reactionText}>{post.reactions.dislikes}</Text>
         </View>
         <View style={styles.reactionGroup}>
@@ -55,6 +56,7 @@ const ListItem = ({ post, onPress }: ListItemProps) => {
 };
 
 
+// modificações visuais da lista
 const styles = StyleSheet.create({
   container: {
     padding: 12,

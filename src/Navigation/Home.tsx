@@ -10,6 +10,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 const Tabs = createBottomTabNavigator<Home>();
 
+//abas de vizualização, história e ficção
 const HomeTab = () => {
   return (
     <Tabs.Navigator screenOptions={{ headerShown: false }}>
